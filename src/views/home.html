@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home site</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        .site-url-container {
+            padding: 1rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 0.5rem 0.8rem;
+        }
+
+        /* Note: This example only works with Windows Insider Preview Builds 16237+ or the Fall Creators Update. */
+
+        body {
+            font-family: segoe-ui_normal, Segoe UI, Segoe, Segoe WP, Helvetica Neue, Helvetica, sans-serif;
+            display: grid;
+            grid-template-areas:
+    "header header header"
+    "nav section aside"
+    "footer footer footer";
+            grid-template-rows: 80px 1fr 50px;
+            grid-template-columns: 15% 1fr 18%;
+            grid-gap: 5px;
+            height: 100vh;
+            margin: 10px;
+        }
+
+        header {
+            border-radius: 10px;
+            height: 60px;
+            background: #707070;
+            grid-area: header;
+        }
+
+        nav {
+            border-top-left-radius: 10px;
+            background: #C9BFBF;
+            grid-area: nav;
+        }
+
+        section {
+            background: #ABABAB;
+            grid-area: section;
+        }
+
+        aside {
+            border-top-right-radius: 10px;
+            background: #C9C9C9;
+            grid-area: aside;
+        }
+
+        footer {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background: #707070;
+            grid-area: footer;
+        }
+
+        header, nav, section, aside, footer {
+            padding: 5px;
+        }
+
+        ul {
+            divst-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        div {
+            float:left;
+        }
+
+        div a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        div a:hover:not(.active) {
+            background-color: #111;
+            border-radius: 10px;
+        }
+
+        .active {
+            background-color: #04AA6D;
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        /* Float cancel and delete buttons and add an equal width */
+        .cancelbtn, .deletebtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add a color to the cancel button */
+        .cancelbtn {
+            background-color: #ccc;
+            color: black;
+        }
+
+        /* Add a color to the delete button */
+        .deletebtn {
+            background-color: #f44336;
+        }
+
+        /* Add padding and center-adivgn text to the container */
+        .container {
+            padding: 16px;
+            text-adivgn: center;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            padding-top: 50px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Style the horizontal ruler */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* The Modal Close Button (x) */
+        .close {
+            position: absolute;
+            right: 35px;
+            top: 15px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #f1f1f1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        textarea {
+            width: 70%;
+            height: 250px;
+            border: 1px solid #0e0c0c;
+            resize: none;
+        }
+
+        textarea::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Change styles for cancel button and delete button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .deletebtn {
+                width: 100%;
+            }
+        }
+        button {
+            width: 200px;
+        }
+        img{
+            width: 35px;
+            height: 35px;
+            border-radius:75%;
+        }
+        .clearfix{
+
+        }
+
+    </style>
+
+</head>
+<body>
+<!-- Note: This example only works with Windows Insider Preview Builds 16237+. -->
+<header>
+    <div class="navbar">
+        <div><a href="/home">Home</a></div>
+        <div><a href="/post/create">News</a></div>
+        <div><a href="/friend/list">friend</a></div>
+        <div style="float:right"><p>{username}</p></div>
+        <div style="float:right">{avatar}</div>
+    </div>
+</header>
+<nav>
+    <p>{username}</p>
+{avatar}
+    {friendlist}
+</nav>
+<section>
+    <div>
+        <button onclick="document.getElementById('id01').style.display='block'">tạo bài viết </button>
+    </div>
+
+
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+        <form class="modal-content"  method="post" action="/post/create">
+            <div class="container">
+                <h1>tạo post</h1>
+                <textarea name="content" id="content"></textarea>
+                <div class="clearfix">
+                    <label for="file-input">
+                        <i class="fas fa-image" style="font-size:50px;color:#0e0c0c"></i>
+                    </label>
+                    <input id="file-input" type="file" style="display:none">
+                </div>
+
+                <div class="clearfix">
+                    <button type="submit" onclick="document.getElementById('id01').style.display='none'"
+                            class="btn btn-success">create
+                    </button>
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            class="btn btn-danger">cancel
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user cdivcks anywhere the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</section>
+<aside>{info}</aside>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.sdivm.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/divbs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+<footer>
+</footer>
+</html>

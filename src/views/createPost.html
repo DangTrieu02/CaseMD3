@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Home site</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    .site-url-container {
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 0.5rem 0.8rem;
+    }
+
+    /* Note: This example only works with Windows Insider Preview Builds 16237+ or the Fall Creators Update. */
+
+    body {
+      font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;
+      display: grid;
+      grid-template-areas:
+    "header header header"
+    "nav section aside"
+    "footer footer footer";
+      grid-template-rows: 80px 1fr 50px;
+      grid-template-columns: 15% 1fr 18%;
+      grid-gap: 5px;
+      height: 100vh;
+      margin: 10px;
+    }
+
+    header {
+      border-radius: 10px ;
+      height: 60px;
+      background: #707070;
+      grid-area: header;
+    }
+
+    nav {
+      border-top-left-radius: 10px;
+      background: #C9BFBF;
+      grid-area: nav;
+    }
+
+    section {
+      background: #ABABAB;
+      grid-area: section;
+    }
+
+    aside {
+      border-top-right-radius: 10px;
+      background: #C9C9C9;
+      grid-area: aside;
+    }
+
+    footer {
+      border-bottom-left-radius: 10px ;
+      border-bottom-right-radius: 10px ;
+      background: #707070;
+      grid-area: footer;
+    }
+
+    header, nav, section, aside, footer {
+      padding: 5px;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+      border-radius: 10px;
+    }
+
+    .active {
+      background-color: #04AA6D;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Note: This example only works with Windows Insider Preview Builds 16237+. -->
+<header>
+  <ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/post/create">News</a></li>
+    <li><a href="">Contact</a></li>
+    <li style="float:right"><a class="active" href="#about">About</a></li>
+    <li><a href="/info/edit">{avatar}</a></li>
+  </ul>
+</header>
+<nav>
+  {friendlist}
+</nav>
+<section>{content}</section>
+<aside>{info}</aside>
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+<footer>
+</footer>
+</html>

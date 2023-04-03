@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home site</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .site-url-container {
+            padding: 1rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 0.5rem 0.8rem;
+        }
+
+        /* Note: This example only works with Windows Insider Preview Builds 16237+ or the Fall Creators Update. */
+
+        body {
+            font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;
+            display: grid;
+            grid-template-areas:
+    "header header header"
+    "nav section aside"
+    "footer footer footer";
+            grid-template-rows: 80px 1fr 50px;
+            grid-template-columns: 15% 1fr 18%;
+            grid-gap: 5px;
+            height: 100vh;
+            margin: 10px;
+        }
+
+        header {
+            border-radius: 10px ;
+            height: 60px;
+            background: #707070;
+            grid-area: header;
+        }
+
+        nav {
+            border-top-left-radius: 10px;
+            background: #C9BFBF;
+            grid-area: nav;
+        }
+
+        section {
+            background: #ABABAB;
+            grid-area: section;
+        }
+
+        aside {
+            border-top-right-radius: 10px;
+            background: #C9C9C9;
+            grid-area: aside;
+        }
+
+        footer {
+            border-bottom-left-radius: 10px ;
+            border-bottom-right-radius: 10px ;
+            background: #707070;
+            grid-area: footer;
+        }
+
+        header, nav, section, aside, footer {
+            padding: 5px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+            border-radius: 10px;
+        }
+
+        .active {
+            background-color: #04AA6D;
+            border-radius: 10px;
+        }
+        .form-group {
+            align-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Note: This example only works with Windows Insider Preview Builds 16237+. -->
+<header>
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/post/create">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li style="float:right"><a class="active" href="#about">About</a></li>
+        <li><a href="/info/edit">{avatar}</a></li>
+    </ul>
+</header>
+<nav>
+    something here
+</nav>
+<section>
+    <div style="text-align: center;">ê djt your profile</div>
+    <form method="post" action="/info/edit">
+    <div class="form-group">
+        <label>Tên</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="{username}">
+    </div>
+    <div class="form-group">
+        <label>ảnh đại diện</label>
+        <input type="file" name="avatar" class="form-control" id="Avatar" placeholder="">
+    </div>
+    <div class="form-group">
+        <label>ảnh bìa</label>
+        <input type="file" name="backgroundImg" class="form-control" id="Cover image" placeholder="">
+    </div>
+    <div class="form-group">
+        <label>ngày sinh</label>
+        <input type="date" name="birthday" class="form-control" id="birthday" placeholder="">
+    </div>
+    <div class="form-group">
+        <select id="gender" name="gender">
+            <option value="" disabled selected>Giới tính</option>
+            <option value="Nam">Nam </option>
+            <option value="Nữ">Nữ </option>
+            <option value="Khác">Khác</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit">cập nhật</button>
+    </div>
+</form>
+</section>
+<aside>aside</aside>
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+<footer>
+</footer>
+</html>
