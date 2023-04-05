@@ -12,7 +12,7 @@ class PostService {
                     join friend f on u.userId = f.userId
                     where p.userId = ${id}
                     or p.userId in (select f.user2id from friend f where f.userid = ${id})
-                    order by p.time`;
+                    order by p.time desc`;
             connect.query(sql, (err, results) => {
                 if (err) {
                     reject(err)

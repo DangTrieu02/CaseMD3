@@ -77,12 +77,11 @@ class UserController {
             console.log(err)
         }
     }
-    static logout(req, res) {
+    static async logout(req, res) {
         res.setHeader('Set-Cookie', 'authorization=; Max-Age=-1; Path=/; SameSite=Strict;');
-        res.write('success')
-        res.end()
+        let login= await Base.readFile('./src/views/login.html')
+        await Base.write(req, res, 200, 'text/html',login )
     }
-
 
 }
 

@@ -14,12 +14,14 @@ class PostController {
             req.on('end', async () =>{
                 let idUser = await Base.getId(req, res)
                 let post= qs.parse(data);
+                console.log(post)
                 await PostService.createPost(idUser,post)
             })
         } catch(e) {
             console.log(e)
         } finally {
-          await Base.write(req, res,301,{'location':'/home'},'')
+            let home= await Base.readFile('./src/views/home.html')
+          await Base.write(req, res,301,{'location':'/home'},home)
         }
     }
 }

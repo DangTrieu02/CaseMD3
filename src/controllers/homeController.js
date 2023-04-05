@@ -7,13 +7,13 @@ class HomeController{
         try {
             let id = await Base.getId(req, res)
             let user = await UserService.findOne(id)
-            let html = await Base.readFile('./src/views/home1.html')
+            let html = await Base.readFile('./src/views/home.html')
             let posts= await PostService.getAllPost(id)
             html = await HomeController.getList( html,posts)
             html = html.replaceAll('{username}', `${user[0].name}`)
             let avatar = `
                 <a href="/info/edit">
-                <img src="./src/public/${user[0].avatar}" alt="Ảnh điện dại">
+                <img width="50px" height="50px" style="border-radius: 75%" ;" src="./src/public/${user[0].avatar}" alt="Ảnh điện dại">
                 </a>`
             html = html.replaceAll('{avatar}', avatar)
             await Base.write(req, res, 200, 'text/html', html)
