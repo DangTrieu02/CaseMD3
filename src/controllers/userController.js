@@ -21,13 +21,14 @@ class UserController {
                 })
                 req.on('end', async () => {
                     let user = qs.parse(data)
+                    console.log(user)
                     let isUserExist = await UserService.checkUser(user)
                     if (isUserExist) {
                         await Base.write(req, res, 301, {'location': '/user/register'}, 'tài khoản đã tồn tại  !!')
                     } else {
-                        const {email, name, password, gender} = qs.parse(data)
+                        const {email, username, password, gender} = qs.parse(data)
                         let passwordHash = await bcrypt.hash(password, 10);
-                        let user = {email: email, name: name, password: passwordHash, gender: gender}
+                        let user = {email: email, name: username, password: passwordHash, gender: gender}
                         await UserService.register(user)
                         await Base.write(req, res, 301, {'location': '/user/login'}, '')
                     }
