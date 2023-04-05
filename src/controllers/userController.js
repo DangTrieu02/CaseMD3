@@ -4,7 +4,7 @@ const UserService = require('../service/userService')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const Process = require('process')
-
+const cookie = require('cookie')
 class UserController {
     constructor() {
     }
@@ -62,7 +62,6 @@ class UserController {
                                 }, Process.env.SECRET)
                                 const cookieValue = `authorization=Bearer ${token}; HttpOnly; Path=/; SameSite=Strict;`
                                 res.setHeader('set-cookie', cookieValue)
-
                                 Base.write(req, res, 301, {'location': '/home'}, '')
                             } else {
                                 Base.write(req, res, 200, 'text/html', '<h1>tai khoan || mat khau sai anh oi </h1>')
@@ -76,6 +75,11 @@ class UserController {
         } catch (err) {
             console.log(err)
         }
+    }
+    static logout(req, res) {
+        res.setHeader('Set-Cookie', 'authorization=; Max-Age=-1; Path=/; SameSite=Strict;');
+        res.write('success')
+        res.end()
     }
 
 

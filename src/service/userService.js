@@ -16,7 +16,6 @@ class UserService {
             })
         })
     }
-
     static checkUser(user) {
         return new Promise((resolve, reject) => {
             let connect = connection.getConnect()
@@ -35,7 +34,6 @@ class UserService {
             })
         })
     }
-
     static getUser(email) {
         return new Promise((resolve, reject) => {
             let connect = connection.getConnect()
@@ -51,7 +49,6 @@ class UserService {
             })
         })
     }
-
     static findOne(userId) {
         return new Promise((resolve, reject) => {
             let connect = connection.getConnect()
@@ -67,7 +64,6 @@ class UserService {
             })
         })
     }
-
     static updateUser(userId, name, gender, avatar, birthday, backgroundImg) {
         return new Promise((resolve, reject) => {
             let connect = connection.getConnect()
@@ -87,7 +83,6 @@ class UserService {
             })
         })
     }
-
 }
 
 module.exports = UserService;

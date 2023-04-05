@@ -1,5 +1,5 @@
 const postController = require('../controllers/postController')
 const postRouter={
-    '/post/create': postController.create, '/post/newFeed': postController.newFeed,
+    '/post/create': postController.createPost,
 }
 module.exports = postRouter;

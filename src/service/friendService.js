@@ -57,13 +57,5 @@ class FriendService {
             })
         })
     }
-
-    static findFriend(id,friend){
-        let connect = connection.getConnect()
-        return new Promise((resolve, reject)=>{
-        let sql =`select friend.user2id from socialmedia.friend join user on user2id = '${friend}'
-        where friend.userid='${id}' and user.n`
-        })
-    }
 }
 module.exports = FriendService;

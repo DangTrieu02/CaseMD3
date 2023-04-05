@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+    <!--  <link rel="stylesheet" href="home.css">-->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Ultra&display=swap");
+
+        * {
+            font-family: 'Quicksand', sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: #FFFFFFC8;
+            display: flex;
+            place-content: center;
+            align-items: flex-end;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .sidebar-left {
+            border-right: 1px solid #202327;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 25vw;
+            height: 100%;
+            background-color: black;
+        }
+
+        .sidebar-left-menu {
+            float: right;
+            top: 0;
+            width: 18vw;
+            height: 100%;
+            background-color: black;
+        }
+
+        .sidebar-left-menu-icon {
+            height: 18vh;
+        }
+
+        .sidebar-left-menu-icon i {
+            font-size: 40px;
+            margin: 30px 15px;
+        }
+
+        .sidebar-left-menu-body {
+            height: 60vh;
+        }
+
+        /*.sidebar-left-menu-body a{*/
+        /*    !*display: inline-block;*!*/
+        /*}*/
+
+        .icon i {
+            padding: 10px;
+            color: #cbcbcb;
+            font-size: 30px;
+        }
+
+        .menu {
+            display: inline-block;
+            padding: 8px;
+            border-radius: 20px;
+            margin: 0px 10px 10px 10px;
+
+        }
+
+        .menu:hover {
+            background-color: #3d3b3b;
+        }
+
+        .menu a {
+            text-decoration: none;
+            padding: 10px;
+            font-size: 25px;
+            color: white;
+        }
+
+        .menu i {
+            padding: 10px 15px 10px 0px;
+            text-align: center;
+        }
+
+        .sidebar-right {
+            border-left: 1px solid #202327;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 35vw;
+            height: 100%;
+            background-color: black;
+            padding: 25px 10px 15px 65px;
+        }
+
+        .sidebar-right-content {
+            border: 1px solid #202327;
+            margin: 45px 15px 15px;
+            width: 25vw;
+            height: 70vh;
+            background-color: black;
+        }
+
+        .main-content {
+            word-wrap: break-word;
+            margin-left: 25vw;
+            margin-right: 35vw;
+            padding-top: 15vh;
+            border-color: #202327;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0.22);
+        }
+
+        .main-content-post {
+            width: 100%;
+            height: auto; /*(auto)*/
+            background-color: rgba(17, 16, 16, 0.45);
+            color: black;
+            border-bottom: 1px solid rgba(37, 32, 32, 0.68);
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            margin-top: 10px;
+        }
+
+        .main-content-post-user {
+            padding: 10px 10px;
+            width: 100%;
+        }
+
+        .main-content-post-user-header {
+            display: flex;
+            align-items: center;
+            width: auto;
+            height: 10vh;
+
+            margin-bottom: 5px;
+        }
+
+        .main-content-post-user-header-avatar {
+            width: 55px;
+            height: 55px;
+            color: white;
+            background: rgba(37, 34, 34, 0.68);
+            border-radius: 75%;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        .main-content-post-user-header-name {
+            top: 0;
+            margin-left: 15px;
+            color: white;
+        }
+
+        .main-content-post-user-body {
+            width: auto;
+            height: auto;
+            margin-left: 55px;
+        }
+
+        .main-content-post-user-body-text {
+            margin: 10px;
+            width: auto;
+            height: auto;
+            color: white;
+        }
+
+        .main-content-post-user-body-img {
+            margin: 10px;
+            width: auto;
+            height: auto;
+
+        }
+
+        .main-content-post-user-footer {
+            display: flex;
+            flex-direction: row;
+            margin-top: 10px;
+            margin-left: 55px;
+            width: auto;
+            height: 25px;
+
+        }
+
+        .main-content-post-user-footer-icon {
+            margin: 0px 100px 0px 50px;
+            color: white;
+        }
+
+
+        /*----------------------------------------------------------------*/
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 15vh;
+            padding: 0 19px;
+            position: fixed;
+            margin: 0 15vw 0 25vw;
+            width: calc(40vw - 10px);
+            top: 0;
+            background-color: #000000db;
+            border-bottom: 1px solid #202327;
+        }
+
+        .login {
+            font-size: 25px;
+            margin-right: 30px;
+        }
+
+        .login a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            color: white;
+            padding: 0px 10px 0px 10px;
+            height: 40px;
+            background-color: #202327;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .search-bar i {
+            margin: 10px 15px;
+        }
+
+        input {
+            color: inherit;
+            outline: none;
+            border: none;
+            background: transparent;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-text p {
+            font-size: 26px
+        }
+
+        .sidebar-left-menu-exit {
+            height: 10vh;
+            background-color: black;
+            margin-top: 15px;
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .btn-modal-post {
+            border: solid 1px;
+            height: 40px;
+            width: 160vw;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 20px;
+        }
+
+        .btn-post {
+            border: solid 1px white;
+            /*margin: 15px 35px;*/
+            width: 6vw;
+            border-radius: 20px;
+            background-color: white;
+            color: black;
+        }
+
+        .btn-exit {
+            border: solid 1px white;
+            margin: 15px 35px;
+            width: 10vw;
+            border-radius: 20px;
+            color: white;
+            background-color: #1d9bf0;
+        }
+
+        .btn-exit:hover, .btn-post:hover, .btn-modal-post:hover {
+            background-color: rgb(255 255 255 / 74%);
+        }
+
+        .modal-content {
+            height: 520px;
+            background-color: #202327;
+            border: 1px solid #202327
+        }
+
+        .modal-lg {
+            width: 580px;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            height: 80px;
+            border-bottom: 1px solid rgb(222 226 230 / 12%)
+        }
+
+        .modal-header-title {
+            font-size: 25px;
+            margin-left: 180px;
+        }
+
+        .modal-header-button {
+            background-color: #3a3b3c;
+            text-align: center;
+            border: 1px solid rgb(222 226 230 / 12%);
+            border-radius: 75px;
+            width: 45px;
+            height: 45px;
+            padding: 10px;
+        }
+
+        .modal-header-button i {
+            font-size: 20px;
+        }
+
+        .modal-header-button:hover {
+            background-color: rgba(87, 90, 91, 0.29)
+        }
+
+
+        .modal-other-main {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgb(222 226 230 / 12%);
+            border-radius: 10px;
+            height: 65px;
+            width: 550px;
+            margin-left: 15px
+
+        }
+
+        .modal-other-main-text {
+            font-size: 15px;
+            padding-top: 10px;
+            padding-left: 20px;
+            color: white;
+        }
+
+        .modal-other-main-icon {
+            text-align: center;
+            margin-left: 30px;
+            display: flex;
+            padding: 10px 10px;
+            font-size: 25px;
+        }
+
+        .modal-other-main-icon1, .modal-other-main-icon2, .modal-other-main-icon3, .modal-other-main-icon4, .modal-other-main-icon5, .modal-other-main-icon6 {
+            margin-left: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 75px;
+            color: black;
+        }
+
+        .modal-other-main-icon1:hover,
+        .modal-other-main-icon2:hover,
+        .modal-other-main-icon3:hover,
+        .modal-other-main-icon4:hover,
+        .modal-other-main-icon5:hover,
+        .modal-other-main-icon6:hover {
+            background-color: #3d3b3b;
+        }
+
+        .modal-footer {
+            border: none;
+        }
+
+
+        /* Animations */
+        @keyframes bounce {
+            from,
+            to {
+                animation-timing-function: ease-in;
+                transform: translateY(0);
+            }
+            50% {
+                animation-timing-function: ease-out;
+                transform: translateY(15%);
+            }
+        }
+
+        @keyframes roll {
+            from {
+                transform: translateY(-50%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        #contact textarea {
+            width: 100%;
+            border: 1px solid #ccc;
+            background: #FFF;
+            margin: 0 0 5px;
+            padding: 10px;
+        }
+
+        textarea::-webkit-scrollbar {
+            display: none;
+        }
+
+        textarea {
+            height: 200px;
+            width: 550px;
+            border: none;
+            outline: none;
+            background-color: #202327;
+            color: #fffefe;
+            font-size: 20px;
+            resize: none
+        }
+    </style>
+    <title>Home</title>
+
+</head>
+<body>
+<div class="main">
+    <div class="sidebar-left">
+        <div class="sidebar-left-menu">
+            <div class="sidebar-left-menu-icon">
+                <i class="fa-regular fa-bong"></i>
+            </div>
+            <div class="sidebar-left-menu-body">
+                <div class="menu">
+                    <a href="/home"><i class="fa-solid fa-house"></i></i>Trang chủ</a>
+                </div>
+                <div class="menu">
+                    <a href=""><i class="fa-regular fa-wand-magic-sparkles"> </i>Khám phá</a>
+                </div>
+                <div class="menu">
+                    <a href=""><i class="fa-solid fa-bell"></i></i>Thông báo</a>
+                </div>
+                <div class="menu">
+                    <a href=""><i class="fa-solid fa-envelope"></i></i>Tin nhắn</a>
+                </div>
+                <div class="menu">
+                    <a href=""><i class="fa-solid fa-bookmark"></i></i>Dấu trang</a>
+                </div>
+                <div class="menu">
+                    <a href="/user/info"><i class="fa-solid fa-user"></i></i>Hồ sơ</a>
+                </div>
+                <div class="menu">
+                    <a href=""><i class="fa-solid fa-cannabis"></i>Thêm</a>
+                </div>
+            </div>
+            <div class="sidebar-left-menu-exit">
+                <button class="btn btn-exit" id="exit">
+                    Thoát
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header-home">
+            <button class="btn btn-post" type="button" data-toggle="modal" data-target="#modal-addPost">
+                Đăng bài
+            </button>
+        </div>
+        <div class="login">
+            Chào<i class="fa-solid fa-face-smile-horns"></i></i>: {username}
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="main-content-post">
+            <div class="main-content-post-user">
+                <div class="main-content-post-user-header">
+                    <div class="main-content-post-user-header-avatar">
+                        <i class="fa-solid fa-user-shakespeare"></i>
+                    </div>
+                    <div class="main-content-post-user-header-name">
+                        User Name
+                    </div>
+                </div>
+                <div class="main-content-post-user-body">
+                    <div class="main-content-post-user-body-text">
+                        <h1>Chào các bạn trẻ</h1>
+                    </div>
+                    <div class="main-content-post-user-body-img">
+                        <img src="data:image/jpeg;base64,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"
+                             alt="">
+                    </div>
+                </div>
+                <div class="main-content-post-user-footer">
+                    <div class="main-content-post-user-footer-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <div class="main-content-post-user-footer-icon">
+                        <i class="fa-light fa-comment"></i>
+                    </div>
+                    <div class="main-content-post-user-footer-icon">
+                        <i class="fa-regular fa-share"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {listPost}
+    </div>
+</div>
+<div class="sidebar-right">
+    <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Tìm kiếm ....">
+    </div>
+    <div class="sidebar-right-content">
+
+
+    </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-addPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div class="modal-header-title">
+                    Tạo bài viết mới
+                </div>
+                <div class="modal-header-button" data-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-x"></i>
+                </div>
+            </div>
+            <form action="/post/create" method="post">
+                <div class="modal-body">
+                    <textarea name="postContent" placeholder="Bạn đang suy nghĩ gì?"></textarea>
+                </div>
+                <div class="modal-other">
+                    <div class="modal-other-main">
+                        <div class="modal-other-main-text">
+                            <p>Thêm vào bài viết của bạn</p>
+                        </div>
+                        <div class="modal-other-main-icon">
+                            <div class="modal-other-main-icon1" style="color: blue">
+                                <label for="img">
+                                <i class="fa-solid fa-file-image"></i>
+                                    <input id="img" style="display: none" type="file" name="postImg">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-other-main-icon2" style="color: #91d1df"><i class="fa-solid fa-user-tag"></i>
+                        </div>
+                        <div class="modal-other-main-icon3" style="color: red"><i
+                                class="fa-light fa-face-smile-upside-down"></i></div>
+                        <div class="modal-other-main-icon4" style="color: #1d9bf0"><i
+                                class="fa-solid fa-location-check"></i></div>
+                        <div class="modal-other-main-icon5" style="color: yellow"><i class="fa-solid fa-flag"></i></div>
+                        <div class="modal-other-main-icon6" style="color: #e08484"><i class="fa-solid fa-cannabis"></i>
+                        </div>
+                    </div>
+                </div>
+                　　　　　　　
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-modal-post">Đăng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--<script src="home.js"></script>-->
+<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -24,9 +24,8 @@ class Base {
     }
 
     static async getId(req, res) {
-        let a = req.headers.cookie
-        let token = a.split(' ')[1]
-        // let token = b.split(' ')[2]
+        let cookies = req.headers.cookie
+        let token = cookies.split(' ')[1]
         let userSub = jwt.verify(token, Process.env.SECRET);
         return userSub.sub
     }

@@ -23,7 +23,6 @@ class InfoController {
             console.log(err)
         }
     }
-
     static async showFormEdit(req, res) {
         if (req.method === 'GET') {
             let html = await Base.readFile('./src/views/editProfile.html')

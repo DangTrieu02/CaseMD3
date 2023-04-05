@@ -1,19 +1,28 @@
 const Base = require('./base')
 const PostService = require('../service/PostService')
+const qs = require("qs");
+const UserService = require("../service/userService");
 class PostController{
     constructor() {}
-    static async newFeed(req, res){
-        let id = Base.getId(req,res)
-        let posts= await PostService.getAllPost(id)
-
-    }
-    static async create(req,res){
-        if(req.method === 'GET'){
-            let html= await Base.readFile('./src/views/createPost.html');
-            await Base.write(req,res,200,'text:html',html);
-        }else{
-
+    static async createPost(req,res){
+        try{
+            console.log(1)
+            let data = '';
+            req.on('data', chunk => {
+                data += chunk;
+            })
+            req.on('end', async () => {
+                let userId= await Base.getId(res,req)
+                let {postImg,postContent}= await qs.parse(data);
+                console.log(postContent,postImg)
+                let post = {postImg:postImg,postContent:postContent}
+                await PostService.createPost(userId,post)
+                await Base.write(req, res, 301, {'location': '/home'}, '')
+            })
+        }catch(err){
+            console.log(err)
         }
     }
+
 }
 module.exports = PostController;
