@@ -129,7 +129,12 @@
 
     }
 
-    .sidebar1 p, .sidebar2 p, .sidebar3 p, .sidebar4 p, .sidebar5 p, .sidebar6 p {
+    .sidebar1 p {
+      margin-left: 25px;
+      margin-top: 15px;
+    }
+
+    .sidebar2 p, .sidebar3 p, .sidebar4 p, .sidebar5 p, .sidebar6 p {
       margin-left: 50px;
       margin-top: 15px;
     }
@@ -232,7 +237,8 @@
     }
 
     .main-right-body {
-      /*background-color: black;*/
+      box-sizing: border-box;
+      position: absolute;
       margin-top: 100px;
       height: 500px;
       width: 50%;
@@ -253,7 +259,7 @@
     .main-content-post {
       width: 100%;
       height: auto;
-      background-color: rgba(17, 16, 16, 0.45);
+      background-color: #242526;
       border-bottom: 1px solid rgba(37, 32, 32, 0.68);
       padding-bottom: 40px;
       margin-bottom: 40px;
@@ -284,13 +290,6 @@
       /*background-color: indianred;*/
     }
 
-    .main-content-header-status-avt-img {
-      width: 45px;
-      height: 45px;
-      border-radius: 75%;
-      background-color: #181820;
-      object-fit: cover;
-    }
 
     .main-content-header-status-avt button {
       border: solid 1px #3a3b3c;
@@ -298,6 +297,12 @@
       margin-left: 15px;
       background-color: #3a3b3c;
       text-align: left;
+    }
+
+    .avt img {
+      /*width: 100%;*/
+      /*height: 100%;*/
+      object-fit: cover;
     }
 
 
@@ -417,7 +422,57 @@
       object-fit: cover;
     }
 
+    .list-friends {
+      width: 300px;
+      height: 500px;
+      border: solid 1px #242526;
+      margin-top: 100px;
+      margin-left: 1010px;
+      background-color: #242526;
+      color: white;
+      border-radius: 10px;
+    }
 
+    .list-friends-top {
+      height: 50px;
+      border-bottom: solid 1px rgba(52, 51, 51, 0.97);
+      font-size: 20px;
+      margin-top: 15px;
+      padding-left: 65px;
+    }
+    .list-friends-body{
+      /*background-color: #3a3b3c;*/
+      margin-top: 10px;
+
+    }
+    .friend{
+      display: flex;
+      flex-direction: row;
+      height: 50px;
+      margin-bottom: 15px;
+      padding-top: 4px;
+      padding-left:20px
+    }
+    .friend-avt{
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 75%;
+      border: solid 1px white;
+    }
+    .friend-name{
+      margin-top: 7px;
+      height:40px;
+      width: auto;
+      margin-left: 10px;
+    }
+    .btn-chat{
+      font-size:20px;
+      padding-left: 100px;
+      color: white;
+    }
+
+    /*----------------------------------------------------------------*/
     /*Modal*/
     .btn {
       background: transparent;
@@ -445,12 +500,12 @@
     }
 
     .btn-exit {
-      border: solid 1px white;
-      margin: 15px 35px;
-      width: 10vw;
-      border-radius: 20px;
+      border: solid 1px rgba(61, 60, 60, 0.37);
+      width: 50px;
+      height: 50px;
+      border-radius: 75%;
       color: white;
-      background-color: #1d9bf0;
+      background-color: #282828;
     }
 
     .btn-exit:hover {
@@ -586,7 +641,8 @@
       </div>
     </div>
     <div class="left-sidebar">
-      <div class="sidebar1"><i class="fa-solid fa-user"></i>
+      <div class="sidebar1">
+        <div class="avt">{avatar}</div>
         <p>{username}</p></div>
       <div class="sidebar2"><i class="fa-regular fa-user-group"></i>
         <p>Friends</p></div>
@@ -597,11 +653,6 @@
       <div class="sidebar5"><i class="fa-regular fa-tv-retro"></i>
         <p>Watch</p></div>
       <div class="sidebar6"> ...</div>
-    </div>
-    <div class="left-bottom">
-      <a href="/user/logout"><button class="btn btn-exit" id="exit">
-        Thoát
-      </button></a>
     </div>
   </div>
   <div class="main-right">
@@ -621,16 +672,20 @@
         </div>
         <div class="mess"><i class="fa-solid fa-message-heart"></i></div>
         <div class="bell"><i class=" fa-solid fa-bell"></i></div>
-        <div class="avt">{avatar}</div>
+        <a href="/user/logout">
+          <button class="btn btn-exit" id="exit">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
+        </a>
+
+        <!--        <div class="avt" >{avatar}</div>-->
       </div>
     </div>
     <div class="main-right-body">
       <div class="main-content-header">
         <div class="main-content-header-status">
           <div class="main-content-header-status-avt">
-            <div class="main-content-header-status-avt-img">
-              {avatar}
-            </div>
+            {avatar}
             <button class="btn btn-post" type="button" data-toggle="modal" data-target="#modal-addPost">
               Hi! Bạn đang nghĩ gì?
             </button>
@@ -655,6 +710,51 @@
       <div class="main-content">
         {listPost}
       </div>
+
+    </div>
+    <div class="list-friends">
+      <div class="list-friends-top">
+        <p>Danh sách bạn bè</p>
+      </div>
+      <div class="list-friends-body">
+        <div class="friend">
+          <div class="friend-avt">
+            img
+          </div>
+          <div class="friend-name">
+            <p>Thằng bạn l</p>
+          </div>
+          <div class="btn btn-chat">
+            <i class="fa-brands fa-facebook-messenger"></i>
+          </div>
+
+        </div>
+        <div class="friend">
+          <div class="friend-avt">
+            img
+          </div>
+          <div class="friend-name">
+            <p>Thằng bạn l</p>
+          </div>
+          <div class="btn btn-chat">
+            <i class="fa-brands fa-facebook-messenger"></i>
+          </div>
+
+        </div>
+        <div class="friend">
+          <div class="friend-avt">
+            img
+          </div>
+          <div class="friend-name">
+            <p>Thằng bạn l</p>
+          </div>
+          <div class="btn btn-chat">
+            <i class="fa-brands fa-facebook-messenger"></i>
+          </div>
+
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
@@ -672,44 +772,44 @@
         </div>
       </div>
       <form action="/post/create" method="post">
-      <div class="modal-body">
-        <textarea name="postContent"  placeholder="Bạn đang suy nghĩ gì?"></textarea>
-      </div>
-      <div class="modal-other">
-        <div class="modal-other-main">
-          <div class="modal-other-main-text">
-            <p>Thêm vào bài viết của bạn</p>
-          </div>
-          <div class="modal-other-main-icon">
-            <div class="modal-other-main-icon1" style="color: blue">
-              <label for="img">
-                <i class="fa-solid fa-file-image"></i>
-                <input type="file" id="img" name="postImg" style="display: none"/>
-              </label>
-            </div>
-            <div class="modal-other-main-icon2" style="color: #91d1df">
-              <i class="fa-solid fa-user-tag"></i>
-            </div>
-            <div class="modal-other-main-icon3" style="color: red"><i
-                    class="fa-light fa-face-smile-upside-down"></i>
-            </div>
-            <div class="modal-other-main-icon4" style="color: #1d9bf0"><i
-                    class="fa-solid fa-location-check"></i></div>
-            <div class="modal-other-main-icon5" style="color: yellow">
-              <i class="fa-solid fa-flag"></i>
-            </div>
-            <div class="modal-other-main-icon6" style="color: #e08484">
-              <i class="fa-solid fa-cannabis">
-
-              </i>
-            </div>
-          </div>
+        <div class="modal-body">
+          <textarea name="postContent" placeholder="Bạn đang suy nghĩ gì?"></textarea>
         </div>
-        　　　　　　　
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-modal-post">Đăng</button>
-      </div>
+        <div class="modal-other">
+          <div class="modal-other-main">
+            <div class="modal-other-main-text">
+              <p>Thêm vào bài viết của bạn</p>
+            </div>
+            <div class="modal-other-main-icon">
+              <div class="modal-other-main-icon1" style="color: blue">
+                <label for="img">
+                  <i class="fa-solid fa-file-image"></i>
+                  <input type="file" id="img" name="postImg" style="display: none"/>
+                </label>
+              </div>
+              <div class="modal-other-main-icon2" style="color: #91d1df">
+                <i class="fa-solid fa-user-tag"></i>
+              </div>
+              <div class="modal-other-main-icon3" style="color: red"><i
+                      class="fa-light fa-face-smile-upside-down"></i>
+              </div>
+              <div class="modal-other-main-icon4" style="color: #1d9bf0"><i
+                      class="fa-solid fa-location-check"></i></div>
+              <div class="modal-other-main-icon5" style="color: yellow">
+                <i class="fa-solid fa-flag"></i>
+              </div>
+              <div class="modal-other-main-icon6" style="color: #e08484">
+                <i class="fa-solid fa-cannabis">
+
+                </i>
+              </div>
+            </div>
+          </div>
+          　　　　　　　
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-modal-post">Đăng</button>
+        </div>
       </form>
 
     </div>
@@ -740,14 +840,11 @@
         Swal.fire({
           title: 'Ok!',
           icon: 'success',
-          timer:1000,
+          timer: 1000,
           showConfirmButton: false,
         }).then(() => {
-          // window.location.href = '/';
           document.getElementById('logout').click()
         })
-
-        // điều hướng
       }
     })
   });

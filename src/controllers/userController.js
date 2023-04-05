@@ -21,7 +21,6 @@ class UserController {
                 })
                 req.on('end', async () => {
                     let user = qs.parse(data)
-                    console.log(user)
                     let isUserExist = await UserService.checkUser(user)
                     if (isUserExist) {
                         await Base.write(req, res, 301, {'location': '/user/register'}, 'tài khoản đã tồn tại  !!')
