@@ -31,7 +31,6 @@ class Base {
     }
 
     static async insertName(html, user) {
-        console.log(user)
         let tbody = ''
         tbody+=`<div class="profile-name"> ${user.name}</div>`
         html = html.replace('{where}', tbody)

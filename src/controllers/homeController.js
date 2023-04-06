@@ -12,8 +12,8 @@ class HomeController{
             html = await HomeController.getList( html,posts)
             html = html.replaceAll('{username}', `${user[0].name}`)
             let avatar = `
-                <a href="/info/edit">
-                <img width="50px" height="50px" style="border-radius: 75%" ;" src="./src/public/${user[0].avatar}" alt="Ảnh điện dại">
+                <a href="/info/edit" style="overflow: hidden">
+                <img width="45px" height="45px" style="border-radius: 75%" ;" src="./src/public/${user[0].avatar}" alt="Ảnh điện dại">
                 </a>`
             html = html.replaceAll('{avatar}', avatar)
             await Base.write(req, res, 200, 'text/html', html)
@@ -31,7 +31,7 @@ class HomeController{
             <img width="50px" height="50px" style="border-radius: 75%" src="./src/public/${post.avatar}" alt="">
           </div>
           <div class="main-content-post-user-header-name">
-            <a href="/info/${post.userId}">${post.name}</a>
+            <p style="font-size: 20px; margin-top: 10px">${post.name}</p>
           </div>
         </div>
         <div class="main-content-post-user-body">
@@ -56,6 +56,7 @@ class HomeController{
       </div>
      </div>`
         })
+
         listHtml = listHtml.replace('{listPost}',tbody)
         return listHtml;
     }
