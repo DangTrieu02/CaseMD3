@@ -31,7 +31,7 @@ class HomeController{
             <img width="50px" height="50px" style="border-radius: 75%" src="./src/public/${post.avatar}" alt="">
           </div>
           <div class="main-content-post-user-header-name">
-            <a href="/info/${post.userId}">${post.name}</a>
+            <a href="/user/info?${post.userId}">${post.name}</a>
           </div>
         </div>
         <div class="main-content-post-user-body">
@@ -39,7 +39,7 @@ class HomeController{
             <p>${post.postContent}</p>
           </div>
           <div class="main-content-post-user-body-img">
-           <img src="./src/public/${post.postImg}" alt="">
+           <img src="../src/public/${post.postImg}" alt="">
           </div>
         </div>
         <div class="main-content-post-user-footer">
@@ -59,7 +59,6 @@ class HomeController{
         listHtml = listHtml.replace('{listPost}',tbody)
         return listHtml;
     }
-
 }
 
 module.exports = HomeController;

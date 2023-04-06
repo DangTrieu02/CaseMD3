@@ -24,5 +24,20 @@ class PostController {
           await Base.write(req, res,301,{'location':'/home'},home)
         }
     }
+    static async editPost(req, res) {
+        // try {
+        //     let data = '';
+        //     req.on('data', chunk => {
+        //         data += chunk;
+        //     })
+        //     req.on('end', async () => {
+        //         let postUpdate = qs.parse(data);
+        //         let postId
+        //         await PostService.updatePost(postUpdate.postImg,postUpdate.postContent,postId)
+        //     })
+        // }catch(e){
+        //
+        // }
+    }
 }
 module.exports = PostController;
